@@ -29,8 +29,7 @@ def stations_by_distance(stations, p):
     station_coord_tuples = list(zip(station_name, station_town, distances_list))  # making a list of tuples of (name, town, distance)
     sorted = sorted_by_key(station_coord_tuples, 2, reverse=False) 
     return sorted  # sorting tuple according to distance
-
-
+    
 
 #Task 1C
 def stations_within_radius(stations, centre, r):
@@ -41,3 +40,6 @@ def stations_within_radius(stations, centre, r):
             new_list.append(unit[0])
     new_list.sort()
     return(new_list)
+
+#Task 1D
+def rivers_with_station(stations):
