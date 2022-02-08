@@ -29,6 +29,17 @@ class MonitoringStation:
 
         self.latest_level = None
 
+
+     #Task 1F: method to check consisitency in typical range
+    def typical_range_consistent(self):
+        if self.typical_range == None : #stations with no range data
+            return False
+        if self.typical_range[0] >  self.typical_range[1] : #stations with low range higher than high range, tuple(low, high)
+            return False
+        else:
+            return True
+
+
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
         d += "   id:            {}\n".format(self.station_id)
@@ -38,3 +49,13 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+
+#Task 1F: returns a list of stations that have inconsistent data    
+def inconsistent_typical_range_stations(stations):
+    list_inconsistent_stations = []
+    for station in stations: #each unit in list
+        if MonitoringStation.typical_range_consistent(station) == False :#call function to check consisitency
+            list_inconsistent_stations.append(station.name)
+    list_inconsistent_stations.sort() #sorting list of names in alphabetical order
+    return(list_inconsistent_stations)
