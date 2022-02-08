@@ -4,9 +4,10 @@
 
 from floodsystem.geo import stations_by_distance
 from floodsystem.stationdata import build_station_list
+def run():
 
-stations = build_station_list()
-list = stations_by_distance(stations,(52.2053, 0.1218))
-print('The closet 10 stations are :', list[:10])
-print('The farthest 10 stations are :', list[-10:])
- 
+    stations = build_station_list()
+    list = stations_by_distance(stations,(52.2053, 0.1218))
+    print('The closet 10 stations are :', list[:10])
+    print('The farthest 10 stations are :', list[-10:])
+run()

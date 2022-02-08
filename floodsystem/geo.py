@@ -93,10 +93,12 @@ def rivers_by_station_number(stations, N):
             new_station_count.append(num)
                 # this adds all rivers where the number is greater than N into a new list. 
         index += 1
+        #django
 # error check - error is written where the number of staitons is too large.
     river_station_tuples = list(
         zip(new_river_list, new_station_count)) #list of tuples for each river and number of stations
     sorted = sorted_by_key(river_station_tuples, 1, reverse=True)
+    sorted = sorted[0:N]
     return sorted
     
 
