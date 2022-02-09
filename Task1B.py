@@ -9,4 +9,8 @@ stations = build_station_list()
 list = stations_by_distance(stations,(52.2053, 0.1218))
 print('The closet 10 stations are :', list[:10])
 print('The farthest 10 stations are :', list[-10:])
+
+
+#Test if function returns tuple
+print(type(list[0]))
  
