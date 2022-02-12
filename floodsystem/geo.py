@@ -7,7 +7,6 @@ geographical data.
 """
 
 #Task 1B
-from hashlib import new
 from .utils import sorted_by_key  
 from haversine import haversine, Unit
 
@@ -18,7 +17,7 @@ def stations_by_distance(stations, p):
     for station in stations:
         station_name.append(station.name) #making a list of station names 
         station_town.append(station.town) #making a list of station towns
-        station_coord.append(station.coord) #making a list of station coordinates as string
+        station_coord.append(station.coord) #making a list of station coordinates 
     
     # using haversine function to find distance, unit = km
     distances_list = []
@@ -40,6 +39,7 @@ def stations_within_radius(stations, centre, r):
             new_list.append(unit[0])
     new_list.sort()
     return(new_list)
+
 
 #Task 1D
 
