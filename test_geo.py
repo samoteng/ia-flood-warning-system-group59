@@ -1,8 +1,8 @@
-#Task 1B
+
 #Test if function returns tuple
 print(type(list[0]))
  
- #Task 1C
+ 
  #Test the distance is less than 10km
 from floodsystem.geo import stations_by_distance
 from floodsystem.stationdata import build_station_list
@@ -18,7 +18,6 @@ def check_stations_within_radius(stations, centre, r):
 list_2 = check_stations_within_radius(stations, (52.2053, 0.1218), 10)
 print(list_2)
 
-#Task 1F
 #Test print list of inconsisitent data
 
 from floodsystem.stationdata import build_station_list
