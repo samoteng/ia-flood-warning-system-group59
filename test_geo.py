@@ -1,6 +1,6 @@
 
 #Test if function returns tuple
-print(type(list[0]))
+
  
  
  #Test the distance is less than 10km
