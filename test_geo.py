@@ -6,6 +6,7 @@
  #Test the distance is less than 10km
 from floodsystem.geo import stations_by_distance
 from floodsystem.stationdata import build_station_list
+from haversine import haversine, Unit
 stations = build_station_list()
 
 def check_stations_within_radius(stations, centre, r):
