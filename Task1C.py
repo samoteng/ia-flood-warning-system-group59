@@ -25,4 +25,6 @@ def check_stations_within_radius(stations, centre, r):
             new_list.append(unit[2])
     return(new_list)
 list_2 = check_stations_within_radius(stations, (52.2053, 0.1218), 10)
+for i in list_2:
+    assert float(i) < 10, 'Should only list stations within 10 km'
 print(list_2)
