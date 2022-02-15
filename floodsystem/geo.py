@@ -32,6 +32,12 @@ def stations_by_distance(stations, p):
 
 #Task 1C
 def stations_within_radius(stations, centre, r):
+    '''try:     #Test if input value is valid
+        r_1 = float(r)  #Check if r is a number
+        if r_1 < 0 :
+            raise ValueError ("Distance cannot be negative")
+        if type(r) != float :
+            raise ValueError ("Distance not defined") '''
     list = stations_by_distance(stations, centre) #create list of stations with distances to compare with r
     new_list = []
     for unit in list:
@@ -93,12 +99,10 @@ def rivers_by_station_number(stations, N):
             new_station_count.append(num)
                 # this adds all rivers where the number is greater than N into a new list. 
         index += 1
-        #django
 # error check - error is written where the number of staitons is too large.
     river_station_tuples = list(
         zip(new_river_list, new_station_count)) #list of tuples for each river and number of stations
     sorted = sorted_by_key(river_station_tuples, 1, reverse=True)
-    sorted = sorted[0:N]
     return sorted
     
 
