@@ -38,6 +38,22 @@ class MonitoringStation:
             return False
         else:
             return True
+    
+
+    #Task 2B: fraction would be (level-low)/(high-low)
+    def relative_water_level(self): 
+        if self.typical_range == None : #stations with no range data
+            return None
+        if self.typical_range[0] >  self.typical_range[1] : #stations with low range higher than high range, tuple(low, high)
+            return None
+        if self.latest_level == None : #stations with no latest level data
+            return None
+        else: #stations with suitable data
+            level = float(self.latest_level)
+            low = float(self.typical_range[0])
+            high = float(self.typical_range[1])
+            fraction = (level - low)/(high - low)
+            return round(fraction,3)
 
 
     def __repr__(self):
