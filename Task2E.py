@@ -1,5 +1,5 @@
 from os import stat
-from plot import plot_water_levels
+from floodsystem.plot import plot_water_levels
 from floodsystem.datafetcher import fetch_measure_levels
 from datetime import timedelta
 from floodsystem.stationdata import build_station_list, update_water_levels
@@ -17,28 +17,17 @@ def run():
     top_stations = n*[None]
     for station in stations:
         if station.latest_level is not None:
-
-            #see if staiton is in top 5
             for i in range(n):
-                if i == n-1:
-                        if top_stations[i] is not None:
-                            
-                        if station.latest_level >= top_stations[i].latest_level:
-                            top_stations[i] = station
-                        else: 
-                            top_stations[i-1] = station
-                        break
-                    if top_stations[i] is not None:
-                        
-                        if station.latest_level < top_stations[i].latest_level:
-                            if i > 0:
-                                top_stations[i-1] = station 
-                        break 
-                top_stations[i] = top_stations[i+1]
-           
-
-    for station in top_stations:
-        print(station.latest_level)
+                if top_stations[i] is None or station.latest_level > top_stations[i].latest_level:
+                    if i < n-1:
+                        top_stations[i] = top_stations[i+1]
+                    else:
+                        top_stations[i] = station
+                else:
+                    if i > 0:
+                        top_stations[i-1] = station
+  
+                    break   
 
     #plot water levels for past 10days
     for station in top_stations:
