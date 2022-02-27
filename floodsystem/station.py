@@ -66,14 +66,6 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
 
-    #Task 2B
-    def relative_water_level(self):
-        if self.latest_level == None or not self.typical_range_consistent():
-            return None
-        #calculate ratio 
-        return ratio 
-        
-
 
 #Task 1F: returns a list of stations that have inconsistent data    
 def inconsistent_typical_range_stations(stations):
