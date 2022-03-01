@@ -13,6 +13,34 @@ def run():
     # Update latest level data for all stations
     update_water_levels(stations)
 
+    '''n = 5
+    #find top n water levels
+    top_stations = n*[None]
+    for station in stations:
+        if station.latest_level is not None:
+
+            #see if staiton is in top 5
+            for i in range(n):
+                if i == n-1:
+                        if top_stations[i] is not None:
+                            
+                        if station.latest_level >= top_stations[i].latest_level:
+                            top_stations[i] = station
+                        else: 
+                            top_stations[i-1] = station
+                        break
+                    if top_stations[i] is not None:
+                        
+                        if station.latest_level < top_stations[i].latest_level:
+                            if i > 0:
+                                top_stations[i-1] = station 
+                        break 
+                top_stations[i] = top_stations[i+1]
+           
+
+    for station in top_stations:
+        print(station.latest_level)'''
+
    #get list of stations with highest water level
     high_stations = stations_highest_rel_level(stations,5)
     high_stations_name = [ i[0] for i in high_stations ]
