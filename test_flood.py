@@ -20,10 +20,5 @@ for station in stations:
 '''print(current_level)'''
 #Yes, there are negative current levels
 
-#Count the total number of stations to assess risk levels
-counter = 0
-for station in stations:
-    counter +=1
-print(counter)
-#2165
+
 

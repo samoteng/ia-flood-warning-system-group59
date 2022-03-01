@@ -18,5 +18,8 @@ print(list_2)
 #Test print list of inconsisitent data
 from floodsystem.station import test_inconsistent_typical_range_stations
 stations = build_station_list()
-list_2 = test_inconsistent_typical_range_stations(stations)
-print(list_2)
+list_3 = test_inconsistent_typical_range_stations(stations)
+for i in list_3:
+    if i != None:
+        assert i[0]>i[1],'Should only include inconsistent data'
+print(list_3)

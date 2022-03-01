@@ -32,7 +32,8 @@ def plot_water_levels(station, dates, levels):
 
 #Task2F
 #a function that plots the water level data and the best-fit polynomial
-from analysis import polyfit
+import matplotlib
+from floodsystem.analysis import polyfit
 def plot_water_level_with_fit(station, dates, levels, p):
     #first plot water level against time using original data
     x = matplotlib.dates.date2num(dates)
