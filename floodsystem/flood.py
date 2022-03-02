@@ -11,11 +11,10 @@ def stations_level_over_threshold(stations, tol):
     station_rlevel = []
     station_name = []
     for station in stations:
-        if MonitoringStation.relative_water_level(station) == None:
-            pass
-        elif float(MonitoringStation.relative_water_level(station)) > float(tol):
-            station_name.append(station.name)
-            station_rlevel.append(MonitoringStation.relative_water_level(station))
+        if MonitoringStation.relative_water_level(station) is not None:
+            if float(MonitoringStation.relative_water_level(station)) > float(tol):
+                station_name.append(station.name)
+                station_rlevel.append(MonitoringStation.relative_water_level(station))
     name_rlevel_tuples = list(zip(station_name,station_rlevel))
     return sorted_by_key(name_rlevel_tuples,1,reverse=True)
 

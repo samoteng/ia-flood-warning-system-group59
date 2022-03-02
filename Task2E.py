@@ -1,4 +1,3 @@
-from os import stat
 from floodsystem.plot import plot_water_levels
 from floodsystem.datafetcher import fetch_measure_levels
 from datetime import timedelta

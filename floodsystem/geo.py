@@ -8,7 +8,7 @@ geographical data.
 
 #Task 1B
 from .utils import sorted_by_key  
-from haversine import haversine, Unit
+from haversine import haversine
 
 def stations_by_distance(stations, p):
     station_name = []

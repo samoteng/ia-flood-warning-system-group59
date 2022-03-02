@@ -1,25 +1,28 @@
-#Test the distance is less than 10km
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import stations_by_distance, stations_within_radius
 from floodsystem.stationdata import build_station_list
-stations = build_station_list()
 
-def check_stations_within_radius(stations, centre, r):
-    list = stations_by_distance(stations, centre) #create list of stations with distances to compare with r
-    new_list = []
-    for unit in list:
-        if unit[2] < float(r): #each unit consists of tuple (name, town, distance), distance is the 2nd element
-            new_list.append(unit[2])
-    return(new_list)
-list_2 = check_stations_within_radius(stations, (52.2053, 0.1218), 10)
-for i in list_2:
-    assert float(i) < 10, 'Should only list stations within 10 km'
-print(list_2)
+#Test for 2B, to see if the result printed is the same
+def test_radius_stations():
+    stations = build_station_list()
+    sortedstations = stations_by_distance(stations, (52.2053, 0.1218))
 
-#Test print list of inconsisitent data
-from floodsystem.station import test_inconsistent_typical_range_stations
-stations = build_station_list()
-list_3 = test_inconsistent_typical_range_stations(stations)
-for i in list_3:
-    if i != None:
-        assert i[0]>i[1],'Should only include inconsistent data'
-print(list_3)
+    first_station = sortedstations[0]
+    last_station = sortedstations[-1]
+
+    assert(first_station[0] == ('Cambridge Jesus Lock'))
+    assert(last_station[0] == ('Penberth'))
+
+test_radius_stations()
+
+
+#Test for 2C
+def test_within_radius_stations():
+    stations = build_station_list()
+    station_list = stations_within_radius(stations, (52.2053, 0.1218), 10)
+
+    assert(station_list == ['Bin Brook', 'Cambridge Baits Bite', "Cambridge Byron's Pool",
+    'Cambridge Jesus Lock', 'Comberton', 'Dernford', 'Girton',
+    'Haslingfield Burnt Mill', 'Lode', 'Oakington', 'Stapleford'])
+
+test_within_radius_stations()
+
