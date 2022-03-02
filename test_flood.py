@@ -14,11 +14,11 @@ def test_station_level():
     s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
     s.latest_level = 3.3
-    assert MonitoringStation.relative_water_level(s) == 0.974
+    assert MonitoringStation.relative_water_level(s) == 0.975
 
     station_list = [s]
     result = stations_level_over_threshold(station_list,0.8)
-    assert result == ("some station",0.974)
+    assert result == ("some station",0.975)
 
 test_station_level()
 
