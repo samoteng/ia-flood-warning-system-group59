@@ -18,7 +18,7 @@ def test_station_level():
 
     station_list = [s]
     result = stations_level_over_threshold(station_list,0.8)
-    assert result == ("some station",0.975)
+    assert result == [("some station",0.975)]
 
 test_station_level()
 
